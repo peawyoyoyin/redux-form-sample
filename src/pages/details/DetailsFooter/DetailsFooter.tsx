@@ -15,7 +15,7 @@ function DetailsFooter(props: DetailsFooterProps) {
           </div>
         </div>
         <div>
-          <Button intent="primary" text="Save" disabled={!props.dirty} />
+          <Button intent="primary" text="Save" onClick={props.handleSubmit} disabled={!props.dirty} />
         </div>
       </div>
     </div>
@@ -23,5 +23,6 @@ function DetailsFooter(props: DetailsFooterProps) {
 }
 
 export default reduxForm({
-  form: 'userDetails'
+  form: 'userDetails',
+  onSubmit: console.log
 })(DetailsFooter);

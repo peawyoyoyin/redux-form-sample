@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { reduxForm } from 'redux-form';
+import { InjectedFormProps, reduxForm } from 'redux-form';
 import { Radio } from '@blueprintjs/core';
 import ReduxFormInputGroup from '../../../components/redux-form/ReduxFormInputGroup';
 import ReduxFormHTMLSelect from '../../../components/redux-form/ReduxFormHTMLSelect';
@@ -8,12 +8,12 @@ import { connect, useSelector } from 'react-redux';
 import { StoreState } from '../../../store';
 import ReduxFormNumericInput from '../../../components/redux-form/ReduxFormNumericInput';
 
-function DetailsFormComponent() {
+function DetailsFormComponent(props: InjectedFormProps) {
   const loading = useSelector<StoreState, boolean>(state => state.users.userDetail === null);
 
   return (
     <div style={{ maxWidth: '780px', marginTop: '1em', flex: 1 }}>
-      <form>
+      <form onSubmit={props.handleSubmit}>
         <div style={{ paddingLeft: '1.5em' }}>
           <div style={{ display: 'flex' }}>
             <ReduxFormInputGroup
