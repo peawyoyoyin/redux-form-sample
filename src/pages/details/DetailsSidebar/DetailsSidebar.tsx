@@ -47,6 +47,7 @@ function DetailsSidebar() {
         ) : (
             users?.map(user => (
               <Callout
+                key={user.id}
                 style={{ marginBottom: '0.5em', cursor: 'pointer' }}
                 icon={null}
                 intent={user.id === selectedUserId ? 'primary' : 'none'}
