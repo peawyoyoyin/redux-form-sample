@@ -10,7 +10,7 @@ const renderField = (props: WrappedFieldProps & IFormGroupProps & AdditionalComm
 
   return (
     <FormGroup {...rest}>
-      <NumericInput className={loading ? Classes.SKELETON : undefined} id={input.name} {...input} />
+      <NumericInput className={loading ? Classes.SKELETON : undefined} id={input.name} onValueChange={input.onChange} {...input} />
     </FormGroup>
   )
 }
