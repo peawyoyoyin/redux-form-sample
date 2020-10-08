@@ -1,0 +1,10 @@
+@import "@blueprintjs/core/lib/scss/variables";
+
+body {
+  margin: 0px;
+  padding-top: calc(0.5em + #{$pt-navbar-height});  
+}
+
+.details-page {
+  height: calc(100vh - 0.5em - #{$pt-navbar-height});
+}

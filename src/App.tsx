@@ -1,24 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Button, Navbar, NavbarGroup, NavbarHeading } from '@blueprintjs/core';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import Home from './pages/home';
+import Details from './pages/details';
+import { store } from './store';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Provider store={store}>
+        <BrowserRouter>
+          <Navbar
+            fixedToTop
+          >
+            <NavbarGroup>
+              <NavbarHeading>RF test</NavbarHeading>
+            </NavbarGroup>
+            <NavbarGroup align="right">
+              <Button minimal icon="user" />
+            </NavbarGroup>
+          </Navbar>
+          <Switch>
+            <Route path="/:id">
+              <Details />
+            </Route>
+            <Route exact path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </BrowserRouter>
+      </Provider>
     </div>
   );
 }
